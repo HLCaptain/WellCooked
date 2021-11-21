@@ -7,7 +7,7 @@ on:
     branches: [ master, dev, experimental ]
 
 jobs:
-  build:
+  build_and_analyze:
     runs-on: ubuntu-latest
 
     steps:
