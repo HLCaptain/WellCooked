@@ -1,13 +1,10 @@
 package hu.wellcooked
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
-import androidx.core.view.children
 import hu.wellcooked.databinding.ActivityMainBinding
 import hu.wellcooked.fragment.courier.CourierFragment
 import hu.wellcooked.fragment.customer.CustomerFragment
-
 
 class MainActivity : BaseActivity() {
     private lateinit var binding: ActivityMainBinding
