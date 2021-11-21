@@ -13,11 +13,13 @@ import com.google.android.gms.common.api.ApiException
 import com.google.android.gms.tasks.Task
 import com.google.firebase.auth.GoogleAuthProvider
 import hu.wellcooked.databinding.ActivityLoginBinding
-
+import hu.wellcooked.fragment.LoadingFragment
 
 class LoginActivity : BaseActivity() {
-    lateinit var binding: ActivityLoginBinding
-    lateinit var googleSignInClient: GoogleSignInClient
+    private lateinit var binding: ActivityLoginBinding
+    private lateinit var googleSignInClient: GoogleSignInClient
+    private lateinit var googleSignInAccount: GoogleSignInAccount
+    private lateinit var progressFragment: LoadingFragment
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -26,13 +28,17 @@ class LoginActivity : BaseActivity() {
         setContentView(binding.root)
 
         binding.googleSignInBtn.setOnClickListener {
+            enableProgress()
             googleSignIn()
         }
+
+        progressFragment = LoadingFragment()
     }
 
     override fun onDestroy() {
         // todo remove signout after testing
         auth.signOut()
+        googleSignInClient.signOut()
         super.onDestroy()
     }
 
@@ -46,6 +52,21 @@ class LoginActivity : BaseActivity() {
             val intent = Intent(this, MainActivity::class.java)
             startActivity(intent)
         }
+        disableProgress()
+    }
+
+    private fun enableProgress() {
+        supportFragmentManager
+            .beginTransaction()
+            .replace(R.id.progressFragment, progressFragment)
+            .commit()
+    }
+
+    private fun disableProgress() {
+        supportFragmentManager
+            .beginTransaction()
+            .remove(progressFragment)
+            .commit()
     }
 
     private fun googleSignIn() {
@@ -77,14 +98,15 @@ class LoginActivity : BaseActivity() {
 
     private fun handleSignInResult(completedTask: Task<GoogleSignInAccount>) {
         try {
-            val account = completedTask.getResult(ApiException::class.java)
-            account?.idToken?.let { firebaseAuthWithGoogle(it) }
+            googleSignInAccount = completedTask.getResult(ApiException::class.java)
+            googleSignInAccount.idToken?.let { firebaseAuthWithGoogle(it) }
         } catch (e: ApiException) {
             // The ApiException status code indicates the detailed failure reason.
             // Please refer to the GoogleSignInStatusCodes class reference for more information.
             val message = "signInResult:failed code=" + e.statusCode
             Log.w(TAG, message)
             Toast.makeText(applicationContext, message, Toast.LENGTH_SHORT).show()
+            updateUi()
         }
     }
 
@@ -96,7 +118,6 @@ class LoginActivity : BaseActivity() {
                     // Sign in success, update UI with the signed-in user's information
                     Log.d(TAG, "signInWithCredential:success")
                     Toast.makeText(applicationContext, "Welcome " + user?.displayName, Toast.LENGTH_SHORT).show()
-                    val user = auth.currentUser
                     updateUi()
                 } else {
                     // If sign in fails, display a message to the user.

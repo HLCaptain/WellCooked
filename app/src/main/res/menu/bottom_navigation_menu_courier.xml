@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
-        android:id="@+id/page_1"
+        android:id="@+id/aboutItemCourier"
         android:enabled="true"
         android:icon="@android:drawable/ic_menu_help"
-        android:title="@string/text_label_1"/>
+        android:title="@string/about"/>
     <item
-        android:id="@+id/page_2"
+        android:id="@+id/homeItemCourier"
         android:enabled="true"
         android:icon="@android:drawable/star_on"
-        android:title="@string/text_label_2"/>
+        android:title="@string/home"/>
 </menu>

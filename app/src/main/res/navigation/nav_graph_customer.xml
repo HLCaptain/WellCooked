@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/customerFragment">
+    <fragment
+        android:id="@+id/customerFragment"
+        android:name="hu.wellcooked.fragment.customer.CustomerFragment"
+        android:label="CustomerFragment" >
+        <action
+            android:id="@+id/action_customerFragment_to_ordersFragment"
+            app:destination="@id/ordersFragment" />
+        <action
+            android:id="@+id/action_customerFragment_to_recipeBrowserFragment"
+            app:destination="@id/recipeBrowserFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/orderInfoFragment"
+        android:name="hu.wellcooked.fragment.customer.OrderInfoFragment"
+        android:label="OrderInfoFragment" >
+        <action
+            android:id="@+id/action_orderInfoFragment_to_ordersFragment"
+            app:destination="@id/ordersFragment" />
+        <action
+            android:id="@+id/action_orderInfoFragment_to_recipeInfoFragment"
+            app:destination="@id/recipeInfoFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/ordersFragment"
+        android:name="hu.wellcooked.fragment.customer.OrdersFragment"
+        android:label="OrdersFragment" >
+        <action
+            android:id="@+id/action_ordersFragment_to_orderInfoFragment"
+            app:destination="@id/orderInfoFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/recipeInfoFragment"
+        android:name="hu.wellcooked.fragment.customer.RecipeInfoFragment"
+        android:label="RecipeInfoFragment" >
+        <action
+            android:id="@+id/action_recipeInfoFragment_to_orderInfoFragment"
+            app:destination="@id/orderInfoFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/recipeBrowserFragment"
+        android:name="hu.wellcooked.fragment.customer.RecipeBrowserFragment"
+        android:label="RecipeBrowserFragment" >
+        <action
+            android:id="@+id/action_recipeBrowserFragment_to_recipeInfoFragment"
+            app:destination="@id/recipeInfoFragment" />
+    </fragment>
+</navigation>
