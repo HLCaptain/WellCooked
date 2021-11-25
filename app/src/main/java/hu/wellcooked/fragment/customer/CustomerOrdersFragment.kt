@@ -5,17 +5,17 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import hu.wellcooked.databinding.FragmentCustomerBinding
+import hu.wellcooked.databinding.FragmentCustomerOrdersBinding
 
 class CustomerOrdersFragment : Fragment() {
-    private lateinit var binding: FragmentCustomerBinding
+    private lateinit var binding: FragmentCustomerOrdersBinding
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        binding = FragmentCustomerBinding.inflate(inflater, container, false)
+        binding = FragmentCustomerOrdersBinding.inflate(inflater, container, false)
         return binding.root
     }
 }
