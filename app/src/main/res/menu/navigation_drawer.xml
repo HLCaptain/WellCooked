@@ -1,18 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
         android:id="@+id/mainItem"
         android:title="@string/nav_drawer_header_title">
         <menu>
             <item
-                android:id="@+id/customerItem"
+                android:id="@+id/customerFragment"
                 android:icon="@android:drawable/ic_menu_search"
                 android:title="@string/nav_drawer_customer_item"
                 android:enabled="true"
                 android:checkable="true"/>
             <item
-                android:id="@+id/courierItem"
+                android:id="@+id/courierFragment"
                 android:icon="@android:drawable/ic_menu_rotate"
                 android:title="@string/nav_drawer_courier_item"
                 android:enabled="true"

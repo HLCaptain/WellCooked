@@ -6,6 +6,6 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="fragment_recipe_browser"/>
+        android:text="fragment_customer_home"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

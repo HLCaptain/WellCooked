@@ -5,20 +5,12 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.navigation.findNavController
+import androidx.navigation.ui.setupWithNavController
 import hu.wellcooked.databinding.FragmentCourierBinding
 
 class CourierFragment : Fragment() {
     private lateinit var binding: FragmentCourierBinding
-
-    companion object {
-        private var instance: CourierFragment? = null
-        fun getInstance(): CourierFragment {
-            if (instance == null) {
-                instance = CourierFragment()
-            }
-            return instance!!
-        }
-    }
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -29,7 +21,10 @@ class CourierFragment : Fragment() {
         return binding.root
     }
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
+    override fun onStart() {
+        super.onStart()
+        binding.bottomNavigationCourier.setupWithNavController(
+            binding.courierNavHostFragment.findNavController()
+        )
     }
 }

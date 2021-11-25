@@ -27,6 +27,8 @@ class LoginActivity : BaseActivity() {
         binding = ActivityLoginBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        iniGoogleSignIn()
+
         binding.googleSignInBtn.setOnClickListener {
             enableProgress()
             googleSignIn()
@@ -69,7 +71,7 @@ class LoginActivity : BaseActivity() {
             .commit()
     }
 
-    private fun googleSignIn() {
+    private fun iniGoogleSignIn() {
         // Configure Google Sign In
         val gso = GoogleSignInOptions
             .Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
@@ -78,9 +80,10 @@ class LoginActivity : BaseActivity() {
             .build()
 
         googleSignInClient = GoogleSignIn.getClient(this, gso)
+    }
 
-        val signInIntent: Intent = googleSignInClient.signInIntent
-        startActivityForResult(signInIntent, RC_SIGN_IN)
+    private fun googleSignIn() {
+        startActivityForResult(googleSignInClient.signInIntent, RC_SIGN_IN)
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {

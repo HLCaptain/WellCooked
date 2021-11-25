@@ -25,4 +25,8 @@
     <string name="attachment_summary_off">Only download attachments when manually requested</string>
 <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="new_orders">New Orders</string>
+    <string name="assigned_orders">Orders</string>
+    <string name="customer_orders">Orders</string>
+    <string name="recipe_browser">Recipes</string>
 </resources>

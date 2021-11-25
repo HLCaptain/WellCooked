@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/nav_graph_drawer"
+    app:startDestination="@id/customerFragment">
+
+    <fragment
+        android:id="@+id/courierFragment"
+        android:name="hu.wellcooked.fragment.courier.CourierFragment"
+        android:label="CourierFragment" />
+    <fragment
+        android:id="@+id/customerFragment"
+        android:name="hu.wellcooked.fragment.customer.CustomerFragment"
+        android:label="CustomerFragment" />
+</navigation>

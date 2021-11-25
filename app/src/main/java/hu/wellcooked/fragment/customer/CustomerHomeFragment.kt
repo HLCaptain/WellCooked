@@ -5,17 +5,17 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import hu.wellcooked.databinding.FragmentRecipeInfoBinding
+import hu.wellcooked.databinding.FragmentCustomerHomeBinding
 
-class RecipeInfoFragment : Fragment() {
-    private lateinit var binding: FragmentRecipeInfoBinding
+class CustomerHomeFragment : Fragment() {
+    private lateinit var binding: FragmentCustomerHomeBinding
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        binding = FragmentRecipeInfoBinding.inflate(inflater, container, false)
+        binding = FragmentCustomerHomeBinding.inflate(inflater, container, false)
         return binding.root
     }
 }

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/nav_graph_courier_order_info"
+    app:startDestination="@id/courierOrderInfoFragment">
+
+    <fragment
+        android:id="@+id/courierOrderInfoFragment"
+        android:name="hu.wellcooked.fragment.courier.CourierOrderInfoFragment"
+        android:label="CourierOrderInfoFragment">
+        <action
+            android:id="@+id/action_courierOrderInfoFragment_to_nav_graph_recipe_info"
+            app:destination="@id/nav_graph_recipe_info" />
+    </fragment>
+    <include app:graph="@navigation/nav_graph_recipe_info" />
+</navigation>

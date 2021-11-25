@@ -1,21 +1,21 @@
-package hu.wellcooked.fragment.customer
+package hu.wellcooked.fragment.courier
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import hu.wellcooked.databinding.FragmentRecipeInfoBinding
+import hu.wellcooked.databinding.FragmentCourierHomeBinding
 
-class RecipeInfoFragment : Fragment() {
-    private lateinit var binding: FragmentRecipeInfoBinding
+class CourierHomeFragment : Fragment() {
+    private lateinit var binding: FragmentCourierHomeBinding
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        binding = FragmentRecipeInfoBinding.inflate(inflater, container, false)
+        binding = FragmentCourierHomeBinding.inflate(inflater, container, false)
         return binding.root
     }
 }

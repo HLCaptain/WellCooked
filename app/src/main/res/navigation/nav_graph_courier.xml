@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/nav_graph_courier"
+    app:startDestination="@id/courierHomeNavFragment">
+    <fragment
+        android:id="@+id/courierHomeNavFragment"
+        android:name="hu.wellcooked.fragment.courier.CourierHomeNavFragment"
+        android:label="CourierHomeNavFragment" />
+    <fragment
+        android:id="@+id/courierNewOrdersNavFragment"
+        android:name="hu.wellcooked.fragment.courier.CourierNewOrdersNavFragment"
+        android:label="CourierNewOrdersNavFragment" />
+    <fragment
+        android:id="@+id/courierOrdersNavFragment"
+        android:name="hu.wellcooked.fragment.courier.CourierOrdersNavFragment"
+        android:label="CourierOrdersNavFragment" />
+</navigation>

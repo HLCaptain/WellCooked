@@ -1,50 +1,65 @@
 package hu.wellcooked
 
 import android.os.Bundle
-import android.util.Log
+import androidx.navigation.NavController
+import androidx.navigation.findNavController
+import androidx.navigation.ui.AppBarConfiguration
+import androidx.navigation.ui.setupActionBarWithNavController
+import androidx.navigation.ui.setupWithNavController
 import hu.wellcooked.databinding.ActivityMainBinding
-import hu.wellcooked.fragment.courier.CourierFragment
-import hu.wellcooked.fragment.customer.CustomerFragment
 
 class MainActivity : BaseActivity() {
     private lateinit var binding: ActivityMainBinding
+    private lateinit var navControllerDelegate: NavController
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        setSupportActionBar(binding.topAppBar)
-
-        binding.topAppBar.setNavigationOnClickListener {
-            if (!binding.navigationDrawer.isOpen) binding.navigationDrawer.open()
-        }
-
-        supportFragmentManager.beginTransaction()
-            .replace(R.id.mainContainer, CustomerFragment.getInstance())
-            .commit()
-        binding.navigationView.setCheckedItem(binding.navigationView.menu.findItem(R.id.customerItem))
 
         // don't remove this
-        binding.navigationView.bringToFront()
-        binding.navigationView.setNavigationItemSelectedListener {
-            Log.d("NAV_DRAWER", "Item selected")
-            return@setNavigationItemSelectedListener when (it.itemId) {
-                R.id.courierItem -> {
-                    supportFragmentManager.beginTransaction()
-                        .replace(R.id.mainContainer, CourierFragment.getInstance())
-                        .commit()
-                    binding.navigationDrawer.close()
-                    true
-                }
-                R.id.customerItem -> {
-                    supportFragmentManager.beginTransaction()
-                        .replace(R.id.mainContainer, CustomerFragment.getInstance())
-                        .commit()
-                    binding.navigationDrawer.close()
-                    true
-                }
-                else -> false
-            }
+        binding.navDrawer.bringToFront()
+    }
+
+    override fun onStart() {
+        super.onStart()
+
+        binding.navDrawer.setupWithNavController(
+            binding.drawerNavHostFragment.findNavController()
+        )
+    }
+
+    override fun onNavigateUp(): Boolean {
+        if (binding.navDrawerLayout.isOpen) {
+            binding.navDrawerLayout.close()
+        } else {
+            binding.navDrawerLayout.open()
         }
+        return super.onNavigateUp()
+    }
+
+    override fun onSupportNavigateUp(): Boolean {
+        return if (navControllerDelegate.graph.startDestinationId == navControllerDelegate.currentDestination?.id) {
+            if (binding.navDrawerLayout.isOpen) {
+                binding.navDrawerLayout.close()
+            } else {
+                binding.navDrawerLayout.open()
+            }
+            false
+        } else {
+            navControllerDelegate.navigateUp()
+            true
+        }
+    }
+
+    fun setNavController(navController: NavController) {
+        navControllerDelegate = navController
+        setupActionBarWithNavController(
+            navControllerDelegate,
+            AppBarConfiguration(
+                navControllerDelegate.graph,
+                binding.navDrawerLayout
+            )
+        )
     }
 }

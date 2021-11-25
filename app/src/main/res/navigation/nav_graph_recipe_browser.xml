@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/nav_graph_customer_recipe_browser"
+    app:startDestination="@id/recipeBrowserFragment">
+
+    <fragment
+        android:id="@+id/recipeBrowserFragment"
+        android:name="hu.wellcooked.fragment.customer.RecipeBrowserFragment"
+        android:label="RecipeBrowserFragment">
+        <action
+            android:id="@+id/action_recipeBrowserFragment_to_nav_graph_recipe_info"
+            app:destination="@id/nav_graph_recipe_info" />
+    </fragment>
+    <include app:graph="@navigation/nav_graph_recipe_info" />
+</navigation>

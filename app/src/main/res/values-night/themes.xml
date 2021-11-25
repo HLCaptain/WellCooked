@@ -1,9 +1,9 @@
-<resources xmlns:tools="http://schemas.android.com/tools">
+<resources>
     <!-- Base application theme. -->
     <style name="Theme.WellCooked" parent="Theme.Material3.DynamicColors.DayNight">
-        <item name="windowActionBar">false</item>
-        <item name="windowNoTitle">true</item>
-        <item name="android:statusBarColor" tools:targetApi="l">?attr/statusBarBackground</item>
+<!--        <item name="windowActionBar">false</item>-->
+<!--        <item name="windowNoTitle">true</item>-->
+<!--        <item name="android:statusBarColor" tools:targetApi="l">?attr/statusBarBackground</item>-->
 <!--        &lt;!&ndash; Primary brand color. &ndash;&gt;-->
 <!--        <item name="colorPrimary">@color/purple_200</item>-->
 <!--        <item name="colorPrimaryVariant">@color/purple_700</item>-->
