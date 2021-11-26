@@ -34,6 +34,10 @@ android {
 }
 
 dependencies {
+    // Retrofit
+    implementation 'com.squareup.retrofit2:retrofit:2.9.0'
+    implementation 'com.squareup.retrofit2:converter-gson:2.9.0'
+
     // For Material 3 (Material You)
     //implementation 'com.google.android.material:material:1.4.0'
     implementation 'androidx.preference:preference:1.1.1'

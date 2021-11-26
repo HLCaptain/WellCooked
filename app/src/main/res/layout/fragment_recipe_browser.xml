@@ -8,4 +8,9 @@
         android:layout_height="match_parent"
         android:text="fragment_recipe_browser"/>
 
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/recipesRecycler"/>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

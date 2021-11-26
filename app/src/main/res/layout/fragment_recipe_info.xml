@@ -4,8 +4,16 @@
     android:layout_height="match_parent">
 
     <TextView
+        android:id="@+id/textView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="fragment_recipe_info"/>
+        android:text="fragment_recipe_info" />
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/recipeCard"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:clickable="true"
+        android:focusable="true"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

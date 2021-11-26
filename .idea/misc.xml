@@ -3,6 +3,7 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Google Drive Backup/School/S5/Mobweb/NHF/WellCooked/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.1935" />
         <entry key="..\:/Google Drive Backup/School/S5/Mobweb/NHF/WellCooked/app/src/main/res/drawable/round_menu_20.xml" value="0.1935" />
         <entry key="..\:/Google Drive Backup/School/S5/Mobweb/NHF/WellCooked/app/src/main/res/layout/activity_login.xml" value="0.9" />
         <entry key="..\:/Google Drive Backup/School/S5/Mobweb/NHF/WellCooked/app/src/main/res/layout/activity_main.xml" value="0.33" />
@@ -26,9 +27,9 @@
         <entry key="..\:/Google Drive Backup/School/S5/Mobweb/NHF/WellCooked/app/src/main/res/layout/fragment_order_info.xml" value="0.18541666666666667" />
         <entry key="..\:/Google Drive Backup/School/S5/Mobweb/NHF/WellCooked/app/src/main/res/layout/fragment_orders.xml" value="0.18541666666666667" />
         <entry key="..\:/Google Drive Backup/School/S5/Mobweb/NHF/WellCooked/app/src/main/res/layout/fragment_recipe.xml" value="0.18541666666666667" />
-        <entry key="..\:/Google Drive Backup/School/S5/Mobweb/NHF/WellCooked/app/src/main/res/layout/fragment_recipe_browser.xml" value="0.18541666666666667" />
+        <entry key="..\:/Google Drive Backup/School/S5/Mobweb/NHF/WellCooked/app/src/main/res/layout/fragment_recipe_browser.xml" value="0.2473940236275191" />
         <entry key="..\:/Google Drive Backup/School/S5/Mobweb/NHF/WellCooked/app/src/main/res/layout/fragment_recipe_browser_nav.xml" value="0.18541666666666667" />
-        <entry key="..\:/Google Drive Backup/School/S5/Mobweb/NHF/WellCooked/app/src/main/res/layout/fragment_recipe_info.xml" value="0.18541666666666667" />
+        <entry key="..\:/Google Drive Backup/School/S5/Mobweb/NHF/WellCooked/app/src/main/res/layout/fragment_recipe_info.xml" value="0.2" />
         <entry key="..\:/Google Drive Backup/School/S5/Mobweb/NHF/WellCooked/app/src/main/res/layout/header_navigation_drawer.xml" value="0.67" />
         <entry key="..\:/Google Drive Backup/School/S5/Mobweb/NHF/WellCooked/app/src/main/res/menu/bottom_navigation_menu.xml" value="0.5" />
         <entry key="..\:/Google Drive Backup/School/S5/Mobweb/NHF/WellCooked/app/src/main/res/menu/bottom_navigation_menu_courier.xml" value="0.18541666666666667" />
