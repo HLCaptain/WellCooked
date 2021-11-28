@@ -1,5 +1,6 @@
 package hu.wellcooked
 
+import android.app.TaskStackBuilder
 import android.os.Bundle
 import androidx.navigation.NavController
 import androidx.navigation.findNavController
@@ -39,7 +40,7 @@ class MainActivity : BaseActivity() {
     }
 
     override fun onSupportNavigateUp(): Boolean {
-        return if (navControllerDelegate.graph.startDestinationId == navControllerDelegate.currentDestination?.id) {
+        return if (navControllerDelegate.graph.startDestination == navControllerDelegate.currentDestination?.id) {
             if (binding.navDrawerLayout.isOpen) {
                 binding.navDrawerLayout.close()
             } else {

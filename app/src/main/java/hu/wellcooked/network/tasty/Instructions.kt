@@ -1,0 +1,60 @@
+import android.os.Parcel
+import android.os.Parcelable
+import com.google.gson.annotations.SerializedName
+
+/*
+Copyright (c) 2021 Kotlin Data Classes Generated from JSON powered by http://www.json2kotlin.com
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+For support, please feel free to contact me at https://www.linkedin.com/in/syedabsar */
+
+
+data class Instructions(
+
+	@SerializedName("temperature") val temperature: String?,
+	@SerializedName("id") val id: Int,
+	@SerializedName("position") val position: Int,
+	@SerializedName("display_text") val display_text: String?,
+	@SerializedName("start_time") val start_time: Int,
+	@SerializedName("appliance") val appliance: String?,
+	@SerializedName("end_time") val end_time: Int
+) : Parcelable {
+	constructor(parcel: Parcel) : this(
+		parcel.readString(),
+		parcel.readInt(),
+		parcel.readInt(),
+		parcel.readString(),
+		parcel.readInt(),
+		parcel.readString(),
+		parcel.readInt()
+	)
+
+	override fun writeToParcel(parcel: Parcel, flags: Int) {
+		parcel.writeString(temperature)
+		parcel.writeInt(id)
+		parcel.writeInt(position)
+		parcel.writeString(display_text)
+		parcel.writeInt(start_time)
+		parcel.writeString(appliance)
+		parcel.writeInt(end_time)
+	}
+
+	override fun describeContents(): Int {
+		return 0
+	}
+
+	companion object CREATOR : Parcelable.Creator<Instructions> {
+		override fun createFromParcel(parcel: Parcel): Instructions {
+			return Instructions(parcel)
+		}
+
+		override fun newArray(size: Int): Array<Instructions?> {
+			return arrayOfNulls(size)
+		}
+	}
+}

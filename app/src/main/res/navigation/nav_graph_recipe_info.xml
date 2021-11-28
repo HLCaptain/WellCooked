@@ -7,5 +7,9 @@
     <fragment
         android:id="@+id/recipeInfoFragment"
         android:name="hu.wellcooked.fragment.customer.RecipeInfoFragment"
-        android:label="RecipeInfoCourierFragment" />
+        android:label="RecipeInfoCourierFragment">
+        <argument
+            android:name="recipe"
+            app:argType="Results" />
+    </fragment>
 </navigation>

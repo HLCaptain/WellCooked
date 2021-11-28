@@ -3,6 +3,8 @@ plugins {
     id 'org.jetbrains.kotlin.android'
     id 'com.google.gms.google-services'
     id "org.sonarqube" version "3.3"
+    id 'com.google.android.libraries.mapsplatform.secrets-gradle-plugin'
+    id 'androidx.navigation.safeargs.kotlin'
 }
 
 android {
@@ -34,6 +36,10 @@ android {
 }
 
 dependencies {
+    // Glide for image loading from the internet
+    implementation 'com.github.bumptech.glide:glide:4.12.0'
+    annotationProcessor 'com.github.bumptech.glide:compiler:4.12.0'
+
     // Retrofit
     implementation 'com.squareup.retrofit2:retrofit:2.9.0'
     implementation 'com.squareup.retrofit2:converter-gson:2.9.0'
@@ -44,14 +50,14 @@ dependencies {
     //implementation 'androidx.compose.material3:material3:1.0.0-alpha01'
 
     // Kotlin
-    implementation 'androidx.navigation:navigation-fragment-ktx:2.4.0-beta02'
-    implementation 'androidx.navigation:navigation-ui-ktx:2.4.0-beta02'
+    implementation 'androidx.navigation:navigation-fragment-ktx:2.3.5'
+    implementation 'androidx.navigation:navigation-ui-ktx:2.3.5'
 
     // Feature module Support
-    implementation 'androidx.navigation:navigation-dynamic-features-fragment:2.4.0-beta02'
+    implementation 'androidx.navigation:navigation-dynamic-features-fragment:2.3.5'
 
     // Testing Navigation
-    androidTestImplementation 'androidx.navigation:navigation-testing:2.4.0-beta02'
+    androidTestImplementation 'androidx.navigation:navigation-testing:2.3.5'
 
     // Default dependencies
     implementation 'androidx.core:core-ktx:1.7.0'
