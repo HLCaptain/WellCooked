@@ -3,7 +3,7 @@ package hu.wellcooked.model
 import android.os.Parcel
 import android.os.Parcelable
 
-data class Customer(
+data class User(
     var id: String = "",
     var name: String = ""
 ) : Parcelable {
@@ -22,12 +22,12 @@ data class Customer(
         return 0
     }
 
-    companion object CREATOR : Parcelable.Creator<Customer> {
-        override fun createFromParcel(parcel: Parcel): Customer {
-            return Customer(parcel)
+    companion object CREATOR : Parcelable.Creator<User> {
+        override fun createFromParcel(parcel: Parcel): User {
+            return User(parcel)
         }
 
-        override fun newArray(size: Int): Array<Customer?> {
+        override fun newArray(size: Int): Array<User?> {
             return arrayOfNulls(size)
         }
     }

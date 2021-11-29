@@ -12,6 +12,8 @@ import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.google.android.gms.common.api.ApiException
 import com.google.android.gms.tasks.Task
 import com.google.firebase.auth.GoogleAuthProvider
+import com.google.firebase.firestore.ktx.firestore
+import com.google.firebase.ktx.Firebase
 import hu.wellcooked.databinding.ActivityLoginBinding
 import hu.wellcooked.fragment.LoadingFragment
 
@@ -51,6 +53,7 @@ class LoginActivity : BaseActivity() {
 
     private fun updateUi() {
         if (user != null) {
+            //Firebase.firestore.collection("users").add(user!!.uid)
             val intent = Intent(this, MainActivity::class.java)
             startActivity(intent)
         }

@@ -80,27 +80,41 @@ class RecipeInfoFragment : Fragment() {
                 // TODO: make a factory for orders
                 // TODO: refactor data hierarchy
                 Firebase.auth.currentUser?.let { user ->
-                    Firebase.firestore
-                        .collection("orders")
-                        .add(Order(
+                    data class UnassignedOrder(
+                        var orderId: String,
+                        var userId: String
+                    )
+                    val order = Order(
+                        id = UUID.randomUUID().toString(),
+                        customer = User(
+                            id = user.uid,
+                            name = user.displayName!!
+                        ),
+                        site = Site(
                             id = UUID.randomUUID().toString(),
-                            customer = Customer(
-                                id = user.uid,
-                                name = user.displayName!!
-                            ),
-                            site = Site(
-                                id = UUID.randomUUID().toString(),
-                                latitude = 69.0,
-                                longitude = 69.0
-                            ),
-                            orderDate = Date().toString(),
-                            completionDate = "",
-                            status = OrderStatus.ORDERED,
-                            recipe = Recipe(
-                                id = recipe?.id.toString(),
-                                thumbnailUrl = recipe?.thumbnail_url ?: "",
-                                name = recipe?.name!!
-                            )
+                            latitude = 69.0,
+                            longitude = 69.0
+                        ),
+                        orderDate = Date().toString(),
+                        completionDate = "",
+                        status = OrderStatus.ORDERED,
+                        recipe = Recipe(
+                            id = recipe?.id.toString(),
+                            thumbnailUrl = recipe?.thumbnail_url ?: "",
+                            name = recipe?.name!!
+                        ),
+                        courier = null
+                    )
+                    Firebase.firestore
+                        .collection("users")
+                        .document(user.uid)
+                        .collection("orders")
+                        .add(order)
+                    Firebase.firestore
+                        .collection("unassignedOrders")
+                        .add(UnassignedOrder(
+                            order.id,
+                            user.uid
                         ))
                 }
             }

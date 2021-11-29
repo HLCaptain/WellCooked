@@ -1,4 +1,4 @@
-package hu.wellcooked.fragment.customer
+package hu.wellcooked.fragment.courier
 
 import android.util.Log
 import android.view.LayoutInflater
@@ -11,13 +11,14 @@ import com.google.firebase.firestore.DocumentChange
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import hu.wellcooked.R
+import hu.wellcooked.databinding.FragmentCourierOrderItemBinding
 import hu.wellcooked.databinding.FragmentCustomerOrderItemBinding
 import hu.wellcooked.model.Order
 import java.lang.StringBuilder
 
-class OrderAdapter : RecyclerView.Adapter<OrderAdapter.OrderViewHolder>() {
+class CourierOrderAdapter : RecyclerView.Adapter<CourierOrderAdapter.CourierOrderViewHolder>() {
     companion object {
-        const val TAG = "hu.wellcooked.fragment.customer.OrderAdapter"
+        const val TAG = "hu.wellcooked.fragment.courier.CourierOrderAdapter"
     }
     val orders = mutableListOf<Order>()
     private var onOrdersChangedListener: OnOrdersChangedListener? = null
@@ -36,12 +37,12 @@ class OrderAdapter : RecyclerView.Adapter<OrderAdapter.OrderViewHolder>() {
         fun onOrderSelected(order: Order)
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): OrderViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CourierOrderViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.fragment_customer_order_item, parent, false)
-        return OrderViewHolder(view)
+        return CourierOrderViewHolder(view)
     }
 
-    override fun onBindViewHolder(holder: OrderAdapter.OrderViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: CourierOrderAdapter.CourierOrderViewHolder, position: Int) {
         holder.bind(orders[position])
     }
 
@@ -51,7 +52,7 @@ class OrderAdapter : RecyclerView.Adapter<OrderAdapter.OrderViewHolder>() {
         if (user != null) {
             db.collection("users")
                 .document(user.uid)
-                .collection("orders")
+                .collection("takenOrders")
                 .addSnapshotListener { snapshot, e ->
                     if (e != null) {
                         Log.w(TAG, "Listen failed.", e)
@@ -82,7 +83,7 @@ class OrderAdapter : RecyclerView.Adapter<OrderAdapter.OrderViewHolder>() {
                             }
                         }
                     }
-            }
+                }
         } else {
             Log.i(TAG, "Firebase user is not signed in.")
         }
@@ -104,11 +105,11 @@ class OrderAdapter : RecyclerView.Adapter<OrderAdapter.OrderViewHolder>() {
         }
     }
 
-    inner class OrderViewHolder(view: View) : RecyclerView.ViewHolder(view) {
-        private val binding = FragmentCustomerOrderItemBinding.bind(view)
+    inner class CourierOrderViewHolder(view: View) : RecyclerView.ViewHolder(view) {
+        private val binding = FragmentCourierOrderItemBinding.bind(view)
         private var order: Order? = null
         init {
-            binding.customerOrderCard.setOnClickListener {
+            binding.courierOrderCard.setOnClickListener {
                 order?.let { onOrderSelectedListener?.onOrderSelected(it) }
             }
         }
@@ -120,13 +121,13 @@ class OrderAdapter : RecyclerView.Adapter<OrderAdapter.OrderViewHolder>() {
                     .with(itemView)
                     .load(order.recipe?.thumbnailUrl)
                     .centerCrop()
-                    .into(customerOrderRecipeImage)
-                customerOrderTitle.text = order.status?.name
+                    .into(courierOrderRecipeImage)
+                courierOrderTitle.text = order.status?.name
                 val desc = StringBuilder()
                 desc.appendLine("Name: ${order.customer?.name}")
                 desc.appendLine("Ordered: ${order.orderDate}")
                 desc.appendLine("Recipe: ${order.recipe?.name}")
-                customerOrderDesc.text = desc
+                courierOrderDesc.text = desc
             }
         }
     }

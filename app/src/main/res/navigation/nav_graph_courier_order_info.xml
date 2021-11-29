@@ -9,16 +9,18 @@
         android:name="hu.wellcooked.fragment.courier.CourierOrderInfoFragment"
         android:label="CourierOrderInfoFragment">
         <argument
+            android:name="order"
+            android:defaultValue="@null"
             app:argType="hu.wellcooked.model.Order"
-            android:name="order"/>
+            app:nullable="true" />
         <action
             android:id="@+id/action_courierOrderInfoFragment_to_nav_graph_recipe_info"
             app:destination="@id/nav_graph_recipe_info">
             <argument
-                app:nullable="true"
                 android:name="recipe"
+                android:defaultValue="@null"
                 app:argType="Results"
-                android:defaultValue="@null"/>
+                app:nullable="true" />
             <argument
                 android:name="recipeId"
                 app:argType="integer" />

@@ -5,21 +5,23 @@ import android.os.Parcelable
 
 data class Order(
     var id: String = "",
-    var customer: Customer? = null,
+    var customer: User? = null,
     var site: Site? = null,
     var orderDate: String = "",
     var completionDate: String = "",
     var recipe: Recipe? = null,
-    var status: OrderStatus? = null
+    var status: OrderStatus? = null,
+    var courier: User? = null
 ) : Parcelable {
     constructor(parcel: Parcel) : this(
         parcel.readString()!!,
-        parcel.readParcelable(Customer::class.java.classLoader),
+        parcel.readParcelable(User::class.java.classLoader),
         parcel.readParcelable(Site::class.java.classLoader),
         parcel.readString()!!,
         parcel.readString()!!,
         parcel.readParcelable(Recipe::class.java.classLoader),
         OrderStatus.valueOf(parcel.readString()!!),
+        parcel.readParcelable(User::class.java.classLoader),
     ) {
     }
 
@@ -31,6 +33,7 @@ data class Order(
         parcel.writeString(completionDate)
         parcel.writeParcelable(recipe, flags)
         parcel.writeString(status?.name)
+        parcel.writeParcelable(courier, flags)
     }
 
     override fun describeContents(): Int {

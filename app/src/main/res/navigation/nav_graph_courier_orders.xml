@@ -13,6 +13,8 @@
             android:id="@+id/action_courierOrdersFragment_to_nav_graph_courier_order_info"
             app:destination="@id/nav_graph_courier_order_info">
             <argument
+                app:nullable="true"
+                android:defaultValue="@null"
                 app:argType="hu.wellcooked.model.Order"
                 android:name="order"/>
         </action>
