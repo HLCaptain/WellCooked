@@ -1,6 +1,7 @@
 package hu.wellcooked.network
 
 import RecipesListResult
+import Results
 import hu.wellcooked.BuildConfig
 import okhttp3.OkHttpClient
 import retrofit2.Call
@@ -28,4 +29,8 @@ object RecipeNetworkManager {
         size: Int = 10,
         tags: Collection<String> = emptyList()
     ): Call<RecipesListResult> = recipeApi.getRandomRecipes(size, tags, Random.nextInt(1000), API_KEY)
+
+    fun getRecipe(
+        id: Int
+    ): Call<Results> = recipeApi.getRecipe(id, API_KEY)
 }

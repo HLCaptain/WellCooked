@@ -39,8 +39,8 @@ class LoginActivity : BaseActivity() {
 
     override fun onDestroy() {
         // todo remove signout after testing
-        auth.signOut()
-        googleSignInClient.signOut()
+        //auth.signOut()
+        //googleSignInClient.signOut()
         super.onDestroy()
     }
 

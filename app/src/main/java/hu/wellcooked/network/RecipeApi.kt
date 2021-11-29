@@ -1,6 +1,7 @@
 package hu.wellcooked.network
 
 import RecipesListResult
+import Results
 import hu.wellcooked.BuildConfig
 import retrofit2.Call
 import retrofit2.http.GET
@@ -16,4 +17,10 @@ interface RecipeApi {
         @Query("from") from: Int = Random.nextInt(1000),
         @Header("x-rapidapi-key") apiKey: String = BuildConfig.RAPID_API_KEY
     ): Call<RecipesListResult>
+
+    @GET("/recipes/detail")
+    fun getRecipe(
+        @Query("id") id: Int,
+        @Header("x-rapidapi-key") apiKey: String = BuildConfig.RAPID_API_KEY
+    ): Call<Results>
 }

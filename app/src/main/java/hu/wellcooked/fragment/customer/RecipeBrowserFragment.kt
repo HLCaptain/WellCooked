@@ -67,6 +67,6 @@ class RecipeBrowserFragment : Fragment() {
     }
 
     private fun refreshRecipes() {
-        context?.let { adapter.refreshRecipes(it) }
+        context?.let { adapter.refreshRecipes() }
     }
 }

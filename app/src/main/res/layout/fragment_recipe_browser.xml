@@ -4,20 +4,10 @@
     android:layout_height="match_parent"
     android:id="@+id/recipeBrowserSwipeRefreshLayout">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recipesRecycler"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:layout_marginVertical="4dp"/>
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:text="fragment_recipe_browser" />
-
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recipesRecycler"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginVertical="4dp"/>
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>

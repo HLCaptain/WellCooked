@@ -3,6 +3,8 @@ package hu.wellcooked
 import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
+import com.google.firebase.auth.ktx.auth
+import com.google.firebase.ktx.Firebase
 
 open class BaseActivity : AppCompatActivity() {
     companion object {
@@ -10,8 +12,8 @@ open class BaseActivity : AppCompatActivity() {
     }
 
     protected val auth: FirebaseAuth
-        get() = FirebaseAuth.getInstance()
+        get() = Firebase.auth
 
     protected val user: FirebaseUser?
-        get() = auth.currentUser
+        get() = Firebase.auth.currentUser
 }

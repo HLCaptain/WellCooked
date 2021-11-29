@@ -9,15 +9,32 @@
         android:label="CustomerOrdersFragment">
         <action
             android:id="@+id/action_customerOrdersFragment2_to_customerOrderInfoFragment"
-            app:destination="@id/customerOrderInfoFragment" />
+            app:destination="@id/customerOrderInfoFragment">
+            <argument
+                android:name="order"
+                app:argType="hu.wellcooked.model.Order" />
+        </action>
     </fragment>
     <fragment
         android:id="@+id/customerOrderInfoFragment"
         android:name="hu.wellcooked.fragment.customer.CustomerOrderInfoFragment"
         android:label="CustomerOrderInfoFragment">
+        <argument
+            app:argType="hu.wellcooked.model.Order"
+            android:name="order"/>
         <action
             android:id="@+id/action_customerOrderInfoFragment_to_nav_graph_recipe_info"
-            app:destination="@id/nav_graph_recipe_info" />
+            app:destination="@id/nav_graph_recipe_info">
+            <argument
+                app:nullable="true"
+                android:name="recipe"
+                app:argType="Results"
+                android:defaultValue="@null"/>
+            <argument
+                android:name="recipeId"
+                app:argType="integer"
+                android:defaultValue="-1"/>
+        </action>
     </fragment>
     <include app:graph="@navigation/nav_graph_recipe_info" />
 </navigation>

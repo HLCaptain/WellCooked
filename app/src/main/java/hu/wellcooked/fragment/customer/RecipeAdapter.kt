@@ -48,7 +48,7 @@ class RecipeAdapter : RecyclerView.Adapter<RecipeAdapter.RecipeViewHolder>() {
 
     override fun getItemCount(): Int = recipes.size
 
-    fun refreshRecipes(context: Context) {
+    fun refreshRecipes(context: Context? = null) {
         RecipeNetworkManager.getRandomRecipes().enqueue(object : Callback<RecipesListResult> {
             override fun onResponse(
                 call: Call<RecipesListResult>,
@@ -67,7 +67,7 @@ class RecipeAdapter : RecyclerView.Adapter<RecipeAdapter.RecipeViewHolder>() {
                 throwable: Throwable
             ) {
                 throwable.printStackTrace()
-                Toast.makeText(context, "Network request error occured, check LOG", Toast.LENGTH_LONG).show()
+                context?.let { Toast.makeText(it, "Network request error occured, check LOG", Toast.LENGTH_LONG).show() }
             }
         })
     }
@@ -115,17 +115,18 @@ class RecipeAdapter : RecyclerView.Adapter<RecipeAdapter.RecipeViewHolder>() {
         fun bind(recipe: Results) {
             this.recipe = recipe
 
-            Glide
-                .with(itemView)
-                .load(recipe.thumbnail_url)
-                .centerCrop()
-                .into(binding.recipeImage)
-
-            binding.recipeImage.contentDescription = recipe.thumbnail_alt_text
-            binding.recipeTitle.text = recipe.name
-            binding.recipeTotalTime.text = "Time: " + recipe.total_time_tier?.display_tier ?: "Unknown"
-            binding.recipeServings.text = "Yield: " + recipe.yields ?: "Unknown"
-            binding.recipeCredits.text = "Credits: " + recipe.credits?.get(Random.nextInt(recipe.credits.size))?.name ?: "Unknown"
+            binding.apply {
+                Glide
+                    .with(itemView)
+                    .load(recipe.thumbnail_url)
+                    .centerCrop()
+                    .into(binding.recipeImage)
+                binding.recipeImage.contentDescription = recipe.thumbnail_alt_text
+                binding.recipeTitle.text = recipe.name
+                binding.recipeTotalTime.text = "Time: " + recipe.total_time_tier?.display_tier ?: "Unknown"
+                binding.recipeServings.text = "Yield: " + recipe.yields ?: "Unknown"
+                binding.recipeCredits.text = "Credits: " + recipe.credits?.get(Random.nextInt(recipe.credits.size))?.name ?: "Unknown"
+            }
         }
     }
 }

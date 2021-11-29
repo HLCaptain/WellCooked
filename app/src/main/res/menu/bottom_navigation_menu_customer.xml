@@ -1,18 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
-        android:id="@+id/customerOrdersNavFragment"
-        android:enabled="true"
-        android:icon="@android:drawable/ic_menu_help"
-        android:title="@string/customer_orders"/>
-    <item
         android:id="@+id/customerHomeNavFragment"
         android:enabled="true"
         android:icon="@android:drawable/star_on"
-        android:title="@string/home"/>
+        android:title="@string/home" />
+
+    <item
+        android:id="@+id/customerOrdersNavFragment"
+        android:enabled="true"
+        android:icon="@android:drawable/ic_menu_help"
+        android:title="@string/customer_orders" />
+
     <item
         android:id="@+id/recipeBrowserNavFragment"
         android:enabled="true"
         android:icon="@android:drawable/star_on"
-        android:title="@string/recipe_browser"/>
+        android:title="@string/recipe_browser" />
 </menu>

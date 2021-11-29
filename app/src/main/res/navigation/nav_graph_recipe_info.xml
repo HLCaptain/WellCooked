@@ -9,7 +9,13 @@
         android:name="hu.wellcooked.fragment.customer.RecipeInfoFragment"
         android:label="RecipeInfoCourierFragment">
         <argument
+            app:nullable="true"
             android:name="recipe"
-            app:argType="Results" />
+            app:argType="Results"
+            android:defaultValue="@null"/>
+        <argument
+            android:name="recipeId"
+            app:argType="integer"
+            android:defaultValue="-1"/>
     </fragment>
 </navigation>
