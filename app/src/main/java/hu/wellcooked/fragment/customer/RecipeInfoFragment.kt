@@ -110,6 +110,7 @@ class RecipeInfoFragment : Fragment() {
                         .document(user.uid)
                         .collection("orders")
                         .add(order)
+                    // TODO: add unassigned order as a reference
                     Firebase.firestore
                         .collection("unassignedOrders")
                         .add(UnassignedOrder(
