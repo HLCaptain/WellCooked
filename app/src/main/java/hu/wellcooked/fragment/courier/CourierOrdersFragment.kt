@@ -6,11 +6,14 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
+import androidx.recyclerview.widget.LinearLayoutManager
 import hu.wellcooked.R
 import hu.wellcooked.databinding.FragmentCourierOrdersBinding
 
 class CourierOrdersFragment : Fragment() {
     private lateinit var binding: FragmentCourierOrdersBinding
+    private lateinit var adapter: CourierOrdersAdapter
+
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -19,9 +22,19 @@ class CourierOrdersFragment : Fragment() {
     ): View {
         binding = FragmentCourierOrdersBinding.inflate(inflater, container, false)
 
-        binding.btOrderInfo.setOnClickListener {
-            findNavController().navigate(R.id.action_courierOrdersFragment_to_nav_graph_courier_order_info)
+        binding.courierOrdersRecycler.layoutManager = LinearLayoutManager(context)
+        adapter = CourierOrdersAdapter()
+        // TODO: ini recyclerview
+        adapter.setOnOrderChangedListener {
+            binding.courierOrdersRecycler.adapter = adapter
         }
+        adapter.setOnOrderSelectedListener {
+            val action = CourierOrdersFragmentDirections.actionCourierOrdersFragmentToNavGraphCourierOrderInfo(it)
+            findNavController().navigate(action)
+        }
+
+        binding.courierOrdersRecycler.adapter = adapter
+
         return binding.root
     }
 }

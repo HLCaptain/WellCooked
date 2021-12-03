@@ -10,7 +10,7 @@
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:contentDescription="order"
+        android:contentDescription="@string/order_recipe_content_desc"
         android:layout_margin="16dp"
         android:layout_gravity="bottom|end" />
 

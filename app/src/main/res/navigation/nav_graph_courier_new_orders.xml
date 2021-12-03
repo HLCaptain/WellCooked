@@ -11,6 +11,12 @@
         android:label="CourierNewOrdersFragment" >
         <action
             android:id="@+id/action_courierNewOrdersFragment_to_nav_graph_courier_order_info"
-            app:destination="@id/nav_graph_courier_order_info" />
+            app:destination="@id/nav_graph_courier_order_info">
+            <argument
+                android:name="order"
+                android:defaultValue="@null"
+                app:argType="hu.wellcooked.model.Order"
+                app:nullable="true" />
+        </action>
     </fragment>
 </navigation>

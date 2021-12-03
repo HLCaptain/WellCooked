@@ -1,9 +1,11 @@
 package hu.wellcooked.fragment.courier
 
+import android.annotation.SuppressLint
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ArrayAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.google.firebase.auth.ktx.auth
@@ -12,13 +14,14 @@ import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import hu.wellcooked.R
 import hu.wellcooked.databinding.FragmentCourierOrderItemBinding
-import hu.wellcooked.databinding.FragmentCustomerOrderItemBinding
 import hu.wellcooked.model.Order
+import hu.wellcooked.model.OrderStatus
 import java.lang.StringBuilder
+import kotlin.coroutines.coroutineContext
 
-class CourierOrderAdapter : RecyclerView.Adapter<CourierOrderAdapter.CourierOrderViewHolder>() {
+class CourierOrdersAdapter : RecyclerView.Adapter<CourierOrdersAdapter.CourierOrderViewHolder>() {
     companion object {
-        const val TAG = "hu.wellcooked.fragment.courier.CourierOrderAdapter"
+        const val TAG = "hu.wellcooked.fragment.courier.CourierOrdersAdapter"
     }
     val orders = mutableListOf<Order>()
     private var onOrdersChangedListener: OnOrdersChangedListener? = null
@@ -38,11 +41,11 @@ class CourierOrderAdapter : RecyclerView.Adapter<CourierOrderAdapter.CourierOrde
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CourierOrderViewHolder {
-        val view = LayoutInflater.from(parent.context).inflate(R.layout.fragment_customer_order_item, parent, false)
+        val view = LayoutInflater.from(parent.context).inflate(R.layout.fragment_courier_order_item, parent, false)
         return CourierOrderViewHolder(view)
     }
 
-    override fun onBindViewHolder(holder: CourierOrderAdapter.CourierOrderViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: CourierOrdersAdapter.CourierOrderViewHolder, position: Int) {
         holder.bind(orders[position])
     }
 
@@ -114,14 +117,36 @@ class CourierOrderAdapter : RecyclerView.Adapter<CourierOrderAdapter.CourierOrde
             }
         }
 
+        @SuppressLint("SetTextI18n")
         fun bind(order: Order) {
             this.order = order
             binding.apply {
-                Glide
-                    .with(itemView)
-                    .load(order.recipe?.thumbnailUrl)
-                    .centerCrop()
-                    .into(courierOrderRecipeImage)
+                stateDropdownMenu.setText(
+                    order.status.toString().first().uppercase() +
+                    order.status.toString().substring(1).lowercase()
+                )
+                stateDropdownMenu.setAdapter(ArrayAdapter(
+                    root.context,
+                    R.layout.dropdown_menu,
+                    root.resources.getStringArray(R.array.order_states)))
+                stateDropdownMenu.setOnItemClickListener { parent, view, position, id ->
+                    for (status in OrderStatus.values()) {
+                        if (OrderStatus.values()[position] == status) {
+                            order.status = status
+                            db.collection("users")
+                                .document(order.customer!!.id)
+                                .collection("orders")
+                                .document(order.id)
+                                .set(order)
+                            db.collection("users")
+                                .document(order.courier!!.id)
+                                .collection("takenOrders")
+                                .document(order.id)
+                                .set(order)
+                            break
+                        }
+                    }
+                }
                 courierOrderTitle.text = order.status?.name
                 val desc = StringBuilder()
                 desc.appendLine("Name: ${order.customer?.name}")

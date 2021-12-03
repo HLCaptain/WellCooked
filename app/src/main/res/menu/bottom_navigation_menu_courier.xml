@@ -1,18 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
+
     <item
         android:id="@+id/courierHomeNavFragment"
         android:enabled="true"
         android:icon="@android:drawable/star_on"
         android:title="@string/home"/>
+
     <item
         android:id="@+id/courierNewOrdersNavFragment"
         android:enabled="true"
         android:icon="@android:drawable/ic_menu_help"
         android:title="@string/new_orders"/>
+
     <item
         android:id="@+id/courierOrdersNavFragment"
         android:enabled="true"
         android:icon="@android:drawable/ic_menu_help"
         android:title="@string/assigned_orders"/>
+
 </menu>

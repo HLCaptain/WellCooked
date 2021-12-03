@@ -3,9 +3,10 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <TextView
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/courierNewOrdersRecycler"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="fragment_courier_new_orders"/>
+        android:layout_marginVertical="4dp"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

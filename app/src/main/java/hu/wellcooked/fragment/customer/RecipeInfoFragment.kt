@@ -80,10 +80,7 @@ class RecipeInfoFragment : Fragment() {
                 // TODO: make a factory for orders
                 // TODO: refactor data hierarchy
                 Firebase.auth.currentUser?.let { user ->
-                    data class UnassignedOrder(
-                        var orderId: String,
-                        var userId: String
-                    )
+
                     val order = Order(
                         id = UUID.randomUUID().toString(),
                         customer = User(
@@ -109,14 +106,18 @@ class RecipeInfoFragment : Fragment() {
                         .collection("users")
                         .document(user.uid)
                         .collection("orders")
-                        .add(order)
+                        .document(order.id)
+                        .set(order)
                     // TODO: add unassigned order as a reference
                     Firebase.firestore
                         .collection("unassignedOrders")
-                        .add(UnassignedOrder(
-                            order.id,
-                            user.uid
-                        ))
+                        .document(order.id)
+                        .set(
+                            UnassignedOrder(
+                                orderId = order.id,
+                                userId = user.uid
+                            )
+                        )
                 }
             }
         }

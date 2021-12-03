@@ -4,11 +4,6 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="fragment_courier_orders"/>
-
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/courierOrdersNavHostFragment"
         android:name="androidx.navigation.fragment.NavHostFragment"

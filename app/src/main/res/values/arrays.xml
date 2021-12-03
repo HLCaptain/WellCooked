@@ -9,4 +9,11 @@
         <item>reply</item>
         <item>reply_all</item>
     </string-array>
+    <string-array name="order_states">
+        <item>Ordered</item>
+        <item>Assessed</item>
+        <item>Picked up</item>
+        <item>On the way</item>
+        <item>Delivered</item>
+    </string-array>
 </resources>

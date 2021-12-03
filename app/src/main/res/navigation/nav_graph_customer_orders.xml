@@ -12,7 +12,9 @@
             app:destination="@id/customerOrderInfoFragment">
             <argument
                 android:name="order"
-                app:argType="hu.wellcooked.model.Order" />
+                android:defaultValue="@null"
+                app:argType="hu.wellcooked.model.Order"
+                app:nullable="true" />
         </action>
     </fragment>
     <fragment
