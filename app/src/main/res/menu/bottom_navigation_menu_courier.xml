@@ -4,19 +4,19 @@
     <item
         android:id="@+id/courierHomeNavFragment"
         android:enabled="true"
-        android:icon="@android:drawable/star_on"
+        android:icon="@drawable/outline_home_24"
         android:title="@string/home"/>
 
     <item
         android:id="@+id/courierNewOrdersNavFragment"
         android:enabled="true"
-        android:icon="@android:drawable/ic_menu_help"
+        android:icon="@drawable/outline_sell_20"
         android:title="@string/new_orders"/>
 
     <item
         android:id="@+id/courierOrdersNavFragment"
         android:enabled="true"
-        android:icon="@android:drawable/ic_menu_help"
+        android:icon="@drawable/outline_local_shipping_24"
         android:title="@string/assigned_orders"/>
 
 </menu>

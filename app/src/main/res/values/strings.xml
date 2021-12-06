@@ -36,4 +36,7 @@
     <string name="show_recipe_button_desc">recipe</string>
     <string name="order_recipe_content_desc">order</string>
     <string name="order_states_hint">Status</string>
+    <string name="recipe">Recipe</string>
+    <string name="order">Order</string>
+    <string name="logout">Logout</string>
 </resources>

@@ -6,13 +6,13 @@
         <menu>
             <item
                 android:id="@+id/customerFragment"
-                android:icon="@android:drawable/ic_menu_search"
+                android:icon="@drawable/outline_shopping_cart_24"
                 android:title="@string/nav_drawer_customer_item"
                 android:enabled="true"
                 android:checkable="true"/>
             <item
                 android:id="@+id/courierFragment"
-                android:icon="@android:drawable/ic_menu_rotate"
+                android:icon="@drawable/outline_local_shipping_24"
                 android:title="@string/nav_drawer_courier_item"
                 android:enabled="true"
                 android:checkable="true"/>
@@ -23,15 +23,21 @@
         android:title="@string/nav_drawer_subheader_title">
         <menu>
             <item
-                android:id="@+id/settingsItem"
+                android:id="@+id/settingsFragment"
                 android:icon="@android:drawable/ic_menu_edit"
                 android:title="@string/settings"
                 android:enabled="true"
                 android:checkable="true"/>
             <item
-                android:id="@+id/aboutItem"
-                android:icon="@android:drawable/ic_dialog_alert"
+                android:id="@+id/aboutFragment"
+                android:icon="@android:drawable/ic_dialog_info"
                 android:title="@string/about"
+                android:enabled="true"
+                android:checkable="true"/>
+            <item
+                android:id="@+id/logoutFragment"
+                android:icon="@drawable/outline_logout_24"
+                android:title="@string/logout"
                 android:enabled="true"
                 android:checkable="true"/>
         </menu>

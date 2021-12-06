@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.navArgs
 import com.bumptech.glide.Glide
@@ -43,7 +44,9 @@ class RecipeInfoFragment : Fragment() {
             recipe = args.recipe!!
             initView()
         } else {
-            loadRecipe(args.recipeId)
+            var recipeId: Int = args.recipeId
+            args.toBundle()["recipeId"]?.let { recipeId = it as Int }
+            loadRecipe(recipeId)
         }
     }
 
@@ -80,7 +83,6 @@ class RecipeInfoFragment : Fragment() {
                 // TODO: make a factory for orders
                 // TODO: refactor data hierarchy
                 Firebase.auth.currentUser?.let { user ->
-
                     val order = Order(
                         id = UUID.randomUUID().toString(),
                         customer = User(
@@ -107,7 +109,9 @@ class RecipeInfoFragment : Fragment() {
                         .document(user.uid)
                         .collection("orders")
                         .document(order.id)
-                        .set(order)
+                        .set(order).addOnCompleteListener {
+                            Toast.makeText(context, "Ordered ${order.recipe?.name}", Toast.LENGTH_SHORT).show()
+                        }
                     // TODO: add unassigned order as a reference
                     Firebase.firestore
                         .collection("unassignedOrders")
@@ -146,5 +150,10 @@ class RecipeInfoFragment : Fragment() {
                 Toast.makeText(context, "Network request error occured, check LOG", Toast.LENGTH_LONG).show()
             }
         })
+    }
+
+    override fun onResume() {
+        super.onResume()
+        (requireActivity() as AppCompatActivity).supportActionBar?.title = "Recipe Information"
     }
 }

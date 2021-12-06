@@ -4,6 +4,7 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.google.firebase.auth.ktx.auth
@@ -69,7 +70,7 @@ class CourierNewOrdersAdapter : RecyclerView.Adapter<CourierNewOrdersAdapter.Cou
                                     val order = it.toObject(Order::class.java)
                                     when (dc.type) {
                                         DocumentChange.Type.ADDED -> {
-                                            orders.add(order!!)
+                                            order?.let { orders.add(order) }
                                             notifyItemInserted(orders.indexOf(order))
                                         }
                                         DocumentChange.Type.MODIFIED -> {
@@ -115,7 +116,6 @@ class CourierNewOrdersAdapter : RecyclerView.Adapter<CourierNewOrdersAdapter.Cou
                         .collection("orders")
                         .document(order.id)
                         .update("courier", order.courier)
-
                     db.collection("unassignedOrders")
                         .document(order.id)
                         .delete()

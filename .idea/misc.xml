@@ -3,10 +3,19 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Google Drive Backup/School/S5/Mobweb/NHF/WellCooked/app/src/main/res/drawable/ic_launcher_foreground.xml" value="0.314" />
+        <entry key="..\:/Google Drive Backup/School/S5/Mobweb/NHF/WellCooked/app/src/main/res/drawable/outline_home_24.xml" value="0.314" />
+        <entry key="..\:/Google Drive Backup/School/S5/Mobweb/NHF/WellCooked/app/src/main/res/drawable/outline_local_shipping_24.xml" value="0.314" />
+        <entry key="..\:/Google Drive Backup/School/S5/Mobweb/NHF/WellCooked/app/src/main/res/drawable/outline_logout_20.xml" value="0.314" />
+        <entry key="..\:/Google Drive Backup/School/S5/Mobweb/NHF/WellCooked/app/src/main/res/drawable/outline_menu_book_24.xml" value="0.314" />
+        <entry key="..\:/Google Drive Backup/School/S5/Mobweb/NHF/WellCooked/app/src/main/res/drawable/outline_sell_20.xml" value="0.314" />
+        <entry key="..\:/Google Drive Backup/School/S5/Mobweb/NHF/WellCooked/app/src/main/res/drawable/outline_shopping_cart_24.xml" value="0.314" />
+        <entry key="..\:/Google Drive Backup/School/S5/Mobweb/NHF/WellCooked/app/src/main/res/layout/activity_login.xml" value="0.3109375" />
         <entry key="..\:/Google Drive Backup/School/S5/Mobweb/NHF/WellCooked/app/src/main/res/layout/activity_main.xml" value="0.1" />
         <entry key="..\:/Google Drive Backup/School/S5/Mobweb/NHF/WellCooked/app/src/main/res/layout/dropdown_menu.xml" value="0.33" />
+        <entry key="..\:/Google Drive Backup/School/S5/Mobweb/NHF/WellCooked/app/src/main/res/layout/fragment_about.xml" value="0.33" />
         <entry key="..\:/Google Drive Backup/School/S5/Mobweb/NHF/WellCooked/app/src/main/res/layout/fragment_courier.xml" value="0.3109375" />
-        <entry key="..\:/Google Drive Backup/School/S5/Mobweb/NHF/WellCooked/app/src/main/res/layout/fragment_courier_home.xml" value="0.17481884057971014" />
+        <entry key="..\:/Google Drive Backup/School/S5/Mobweb/NHF/WellCooked/app/src/main/res/layout/fragment_courier_home.xml" value="0.33" />
         <entry key="..\:/Google Drive Backup/School/S5/Mobweb/NHF/WellCooked/app/src/main/res/layout/fragment_courier_home_nav.xml" value="0.18541666666666667" />
         <entry key="..\:/Google Drive Backup/School/S5/Mobweb/NHF/WellCooked/app/src/main/res/layout/fragment_courier_new_order_item.xml" value="0.67" />
         <entry key="..\:/Google Drive Backup/School/S5/Mobweb/NHF/WellCooked/app/src/main/res/layout/fragment_courier_new_orders.xml" value="0.18541666666666667" />
@@ -25,14 +34,18 @@
         <entry key="..\:/Google Drive Backup/School/S5/Mobweb/NHF/WellCooked/app/src/main/res/layout/fragment_customer_orders.xml" value="0.3109375" />
         <entry key="..\:/Google Drive Backup/School/S5/Mobweb/NHF/WellCooked/app/src/main/res/layout/fragment_customer_orders_nav.xml" value="0.2604166666666667" />
         <entry key="..\:/Google Drive Backup/School/S5/Mobweb/NHF/WellCooked/app/src/main/res/layout/fragment_loading.xml" value="0.18541666666666667" />
+        <entry key="..\:/Google Drive Backup/School/S5/Mobweb/NHF/WellCooked/app/src/main/res/layout/fragment_logout.xml" value="0.3109375" />
         <entry key="..\:/Google Drive Backup/School/S5/Mobweb/NHF/WellCooked/app/src/main/res/layout/fragment_recipe_browser.xml" value="0.26992753623188404" />
         <entry key="..\:/Google Drive Backup/School/S5/Mobweb/NHF/WellCooked/app/src/main/res/layout/fragment_recipe_browser_nav.xml" value="0.3109375" />
         <entry key="..\:/Google Drive Backup/School/S5/Mobweb/NHF/WellCooked/app/src/main/res/layout/fragment_recipe_info.xml" value="0.43073593073593075" />
         <entry key="..\:/Google Drive Backup/School/S5/Mobweb/NHF/WellCooked/app/src/main/res/layout/fragment_recipe_item.xml" value="0.3109375" />
+        <entry key="..\:/Google Drive Backup/School/S5/Mobweb/NHF/WellCooked/app/src/main/res/layout/fragment_settings.xml" value="0.3109375" />
         <entry key="..\:/Google Drive Backup/School/S5/Mobweb/NHF/WellCooked/app/src/main/res/layout/header_navigation_drawer.xml" value="0.18541666666666667" />
         <entry key="..\:/Google Drive Backup/School/S5/Mobweb/NHF/WellCooked/app/src/main/res/menu/bottom_navigation_menu_courier.xml" value="0.18541666666666667" />
         <entry key="..\:/Google Drive Backup/School/S5/Mobweb/NHF/WellCooked/app/src/main/res/menu/bottom_navigation_menu_customer.xml" value="0.18541666666666667" />
         <entry key="..\:/Google Drive Backup/School/S5/Mobweb/NHF/WellCooked/app/src/main/res/menu/navigation_drawer.xml" value="0.3109375" />
+        <entry key="..\:/Google Drive Backup/School/S5/Mobweb/NHF/WellCooked/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.314" />
+        <entry key="..\:/Google Drive Backup/School/S5/Mobweb/NHF/WellCooked/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.314" />
       </map>
     </option>
   </component>
