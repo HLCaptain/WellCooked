@@ -31,12 +31,12 @@ class LogoutFragment : Fragment() {
     }
 
     private fun signOut() {
-        val gso = GoogleSignInOptions
-            .Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
-            .requestIdToken(getString(R.string.default_web_client_id))
-            .requestEmail()
-            .build()
-        GoogleSignIn.getClient(requireActivity(), gso).signOut()
-        Firebase.auth.signOut()
+//        val gso = GoogleSignInOptions
+//            .Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
+//            .requestIdToken(getString(R.string.default_web_client_id))
+//            .requestEmail()
+//            .build()
+//        GoogleSignIn.getClient(requireActivity(), gso).signOut()
+//        Firebase.auth.signOut()
     }
 }
